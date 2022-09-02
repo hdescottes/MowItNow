@@ -1,5 +1,7 @@
 # MowItNow    
 
+![build workflow](https://github.com/hdescottes/MowItNow/actions/workflows/build.yml/badge.svg)
+
 La société MowItNow a décidé de développer une tondeuse à gazon automatique,
 destinée aux surfaces rectangulaires. <br>
 La tondeuse peut être programmée pour parcourir l'intégralité de la surface. La
