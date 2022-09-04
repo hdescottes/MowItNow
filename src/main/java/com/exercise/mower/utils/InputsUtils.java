@@ -2,6 +2,7 @@ package com.exercise.mower.utils;
 
 import com.exercise.mower.constant.CommandEnum;
 import com.exercise.mower.direction.DirectionEnum;
+import com.exercise.mower.model.Coordinates;
 import com.exercise.mower.model.Mower;
 import com.exercise.mower.model.Plateau;
 
@@ -24,13 +25,13 @@ public class InputsUtils {
     public static Plateau parsePlateauInput(String plateauInput) {
         String[] inputArray = plateauInput.split(" ");
         LocationUtils.checkPlateau(inputArray);
-        return new Plateau(Integer.parseInt(inputArray[0]), Integer.parseInt(inputArray[1]));
+        return new Plateau(new Coordinates(Integer.parseInt(inputArray[0]), Integer.parseInt(inputArray[1])));
     }
 
     public static Mower parsePositionInput(String positionInput, Plateau plateau) {
         String[] inputArray = positionInput.split(" ");
         LocationUtils.checkPosition(inputArray, plateau);
-        return new Mower(plateau, Integer.parseInt(inputArray[0]), Integer.parseInt(inputArray[1]), DirectionEnum.valueOf(inputArray[2]).getDirection());
+        return new Mower(plateau, new Coordinates(Integer.parseInt(inputArray[0]), Integer.parseInt(inputArray[1])), DirectionEnum.valueOf(inputArray[2]).getDirection());
     }
 
     public static ArrayList<CommandEnum> parseCommandInput(String command) {

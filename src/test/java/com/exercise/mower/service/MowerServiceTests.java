@@ -26,8 +26,8 @@ class MowerServiceTests extends CommonTests {
     public void executeCommandList_ShouldSucceed() {
         ArrayList<CommandEnum> commands = createCommandList();
         mowerServiceTest.executeCommandList(commands);
-        assertEquals(0, mower.getX());
-        assertEquals(2, mower.getY());
+        assertEquals(0, mower.getCoordinates().getX());
+        assertEquals(2, mower.getCoordinates().getY());
         assertEquals(N.getDirection().getClass(), mower.getDirection().getClass());
     }
 
@@ -35,19 +35,19 @@ class MowerServiceTests extends CommonTests {
     public void executeCommandList_ShouldSucceedWithTwoMowersNoCollision() {
         ArrayList<CommandEnum> commands = createCommandList();
         mowerServiceTest.executeCommandList(commands);
-        assertEquals(0, mower.getX());
-        assertEquals(2, mower.getY());
+        assertEquals(0, mower.getCoordinates().getX());
+        assertEquals(2, mower.getCoordinates().getY());
         assertEquals(N.getDirection().getClass(), mower.getDirection().getClass());
 
-        mower2.getPlateau().setMowers(Collections.singletonList(mower));
+        mower2.getPlateau().setMowersCoordinates(Collections.singletonList(mower.getCoordinates()));
         ArrayList<CommandEnum> commands2 = new ArrayList<>();
         commands2.add(A);
         commands2.add(D);
         commands2.add(A);
         commands2.add(A);
         mowerServiceTest2.executeCommandList(commands2);
-        assertEquals(2, mower2.getX());
-        assertEquals(1, mower2.getY());
+        assertEquals(2, mower2.getCoordinates().getX());
+        assertEquals(1, mower2.getCoordinates().getY());
         assertEquals(E.getDirection().getClass(), mower2.getDirection().getClass());
     }
 
@@ -55,19 +55,19 @@ class MowerServiceTests extends CommonTests {
     public void executeCommandList_ShouldSucceedWithTwoMowersCollision() {
         ArrayList<CommandEnum> commands = createCommandList();
         mowerServiceTest.executeCommandList(commands);
-        assertEquals(0, mower.getX());
-        assertEquals(2, mower.getY());
+        assertEquals(0, mower.getCoordinates().getX());
+        assertEquals(2, mower.getCoordinates().getY());
         assertEquals(N.getDirection().getClass(), mower.getDirection().getClass());
 
-        mower2.getPlateau().setMowers(Collections.singletonList(mower));
+        mower2.getPlateau().setMowersCoordinates(Collections.singletonList(mower.getCoordinates()));
         ArrayList<CommandEnum> commands2 = new ArrayList<>();
         commands2.add(A);
         commands2.add(A);
         commands2.add(D);
         commands2.add(A);
         mowerServiceTest2.executeCommandList(commands2);
-        assertEquals(1, mower2.getX());
-        assertEquals(1, mower2.getY());
+        assertEquals(1, mower2.getCoordinates().getX());
+        assertEquals(1, mower2.getCoordinates().getY());
         assertEquals(E.getDirection().getClass(), mower2.getDirection().getClass());
     }
 }

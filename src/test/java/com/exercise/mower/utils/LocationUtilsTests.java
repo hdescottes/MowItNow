@@ -1,6 +1,7 @@
 package com.exercise.mower.utils;
 
 import com.exercise.mower.CommonTests;
+import com.exercise.mower.model.Coordinates;
 import com.exercise.mower.model.Mower;
 import com.exercise.mower.model.Plateau;
 import org.junit.jupiter.api.Test;
@@ -43,9 +44,9 @@ class LocationUtilsTests extends CommonTests {
     @Test
     public void isPositionOkOnMowers_ShouldSucceedWithTrue() {
         Plateau plateau = createPlateauWithMowers();
-        Mower mower = new Mower(plateau, 3, 5, N.getDirection());
+        Mower mower = new Mower(plateau, new Coordinates(3, 5), N.getDirection());
 
-        Boolean check = LocationUtils.isPositionOk(mower.getX(), mower.getY(), mower);
+        Boolean check = LocationUtils.isPositionOk(mower.getCoordinates().getX(), mower.getCoordinates().getY(), mower);
 
         assertThat(check).isTrue();
     }
@@ -53,9 +54,9 @@ class LocationUtilsTests extends CommonTests {
     @Test
     public void isPositionOkOnMowers_ShouldSucceedWithFalse() {
         Plateau plateau = createPlateauWithMowers();
-        Mower mower = new Mower(plateau, 4, 5, N.getDirection());
+        Mower mower = new Mower(plateau, new Coordinates(4, 5), N.getDirection());
 
-        Boolean check = LocationUtils.isPositionOk(mower.getX(), mower.getY(), mower);
+        Boolean check = LocationUtils.isPositionOk(mower.getCoordinates().getX(), mower.getCoordinates().getY(), mower);
 
         assertThat(check).isFalse();
     }

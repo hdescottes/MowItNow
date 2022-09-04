@@ -38,8 +38,8 @@ class InputsUtilsTests extends CommonTests {
 
         assertEquals(0, plateauOutput.getOriginX());
         assertEquals(0, plateauOutput.getOriginY());
-        assertEquals(5, plateauOutput.getUpperX());
-        assertEquals(5, plateauOutput.getUpperY());
+        assertEquals(5, plateauOutput.getCoordinates().getX());
+        assertEquals(5, plateauOutput.getCoordinates().getY());
     }
 
     @Test
@@ -47,8 +47,8 @@ class InputsUtilsTests extends CommonTests {
         String positionInput = "1 2 N";
         Mower mowerOutput = InputsUtils.parsePositionInput(positionInput, createPlateau());
 
-        assertEquals(1, mowerOutput.getX());
-        assertEquals(2, mowerOutput.getY());
+        assertEquals(1, mowerOutput.getCoordinates().getX());
+        assertEquals(2, mowerOutput.getCoordinates().getY());
         assertEquals('N', mowerOutput.getDirection().getClass().getSimpleName().charAt(0));
     }
 

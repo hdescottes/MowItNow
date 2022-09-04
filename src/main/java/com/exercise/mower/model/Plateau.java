@@ -8,16 +8,13 @@ import java.util.List;
  */
 public class Plateau {
 
-    private int upperX;
+    private Coordinates coordinates;
 
-    private int upperY;
+    private List<Coordinates> mowersCoordinates;
 
-    private List<Mower> mowers;
-
-    public Plateau(int upperX, int upperY) {
-        this.upperX = upperX;
-        this.upperY = upperY;
-        this.mowers = new ArrayList<>();
+    public Plateau(Coordinates coordinates) {
+        this.coordinates = coordinates;
+        this.mowersCoordinates = new ArrayList<>();
     }
 
     public int getOriginX() {
@@ -28,19 +25,19 @@ public class Plateau {
         return 0;
     }
 
-    public int getUpperX() {
-        return upperX;
+    public Coordinates getCoordinates() {
+        return coordinates;
     }
 
-    public int getUpperY() {
-        return upperY;
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
     }
 
-    public List<Mower> getMowers() {
-        return mowers;
+    public List<Coordinates> getMowersCoordinates() {
+        return mowersCoordinates;
     }
 
-    public void setMowers(List<Mower> mowers) {
-        this.mowers = mowers;
+    public void setMowersCoordinates(List<Coordinates> mowersCoordinates) {
+        this.mowersCoordinates = mowersCoordinates;
     }
 }

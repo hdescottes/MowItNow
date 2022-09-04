@@ -32,7 +32,7 @@ public class MowerApplication {
             MowerService mowerService = new MowerService(mower);
             ArrayList<CommandEnum> commands = InputsUtils.parseCommandInput(mowerInput.get(i + 1));
             mowerService.executeCommandList(commands);
-            plateau.getMowers().add(mower);
+            plateau.getMowersCoordinates().add(mower.getCoordinates());
             System.out.println(LocationUtils.showLocation(mower));
         }
     }

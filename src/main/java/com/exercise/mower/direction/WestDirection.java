@@ -17,8 +17,8 @@ public class WestDirection implements Direction {
 
     @Override
     public void moveForward(Mower mower) {
-        if (LocationUtils.isPositionOk(mower.getX() - 1, mower.getY(), mower)) {
-            mower.setX(mower.getX() - 1);
+        if (LocationUtils.isPositionOk(mower.getCoordinates().getX() - 1, mower.getCoordinates().getY(), mower)) {
+            mower.getCoordinates().setX(mower.getCoordinates().getX() - 1);
         }
     }
 }
